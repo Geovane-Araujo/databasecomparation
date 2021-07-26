@@ -210,7 +210,7 @@ public class ComparationsFirebird implements Runnable{
         LocalTime tmfim =  LocalTime.now();
         String dif = String.valueOf(MILLIS.between(tmini,tmfim));
 
-        Comparations.matTempos.put("Time_EditManual_Firebird", dif);
+        Comparations.matTempos.put("Time_Edit_Manual_Firebird", dif);
     }
 
     public void deletManual(List<Empresas> emp){

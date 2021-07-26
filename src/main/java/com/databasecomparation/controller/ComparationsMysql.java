@@ -138,7 +138,7 @@ public  class ComparationsMysql implements Runnable{
         LocalTime tmfim =  LocalTime.now();
         String dif = String.valueOf(MILLIS.between(tmini,tmfim));
 
-        Comparations.matTempos.put("Time_Insert_Manual_Mysql", dif);
+        Comparations.matTempos.put("Time_Insert_Manual_MySql", dif);
     }
 
     public void editManual(List<Empresas> emp){

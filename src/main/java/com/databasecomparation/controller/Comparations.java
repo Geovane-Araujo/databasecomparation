@@ -25,6 +25,7 @@ public abstract class Comparations{
 
 
     public static Map<String, Object> matTempos = new LinkedHashMap<String, Object>();
+
     private static Atom at = new Atom();
 
     private static PostgresConnections pgcon = new PostgresConnections();
@@ -60,7 +61,7 @@ public abstract class Comparations{
             BufferedReader br = new BufferedReader(new FileReader(file));
             String linha = "";
             int i = 0;
-            while((linha = br.readLine()) != null && i <= 1000){
+            while((linha = br.readLine()) != null && i <= 10){
 
                 String[] splitempresa = linha.split("\";");
 
@@ -100,10 +101,33 @@ public abstract class Comparations{
     }
 
     public static void map(){
-        System.out.println("Valores em ms\n");
-        for (Map.Entry<String,Object> pair : matTempos.entrySet()) {
-            System.out.println(pair.getKey() +":");
-            System.out.println(pair.getValue() + " ms");
+        System.out.println("Dados relativos ao Tempo (ms)");
+        System.out.println("****************************************************************************************************************************************************|");
+        System.out.println("                                  Programação Serial                             |                    Usando Threads Paralelas                      |");
+        System.out.println("           Usando Atom                |           Método Manual                  |           Usando Atom           |          Método Manual         |");
+        System.out.println("Banco           |Insert    |Update    |Delete    |Insert    |Update    |Delete   |Insert    |Update    |Delete     |Insert    |Update    |Delete    |");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------|");
+        System.out.println("PostgreSql      |"+ retString54(matTempos.get("Time_Insert_Atom_Serial_Postgres").toString())+retString54(matTempos.get("Time_Edit_Atom_Serial_Postgres").toString())+retString54(matTempos.get("Time_Delete_Atom_Serial_Postgres").toString())+retString54(matTempos.get("Time_Insert_Manual_Postgres").toString())+retString54(matTempos.get("Time_Edit_Manual_Postgres").toString())+retString54(matTempos.get("Time_Delete_Manual_Postgres").toString())+retString54(matTempos.get("Time_Insert_Atom_Thread_Postgres").toString())+retString54(matTempos.get("Time_Edit_Atom_Thread_Postgres").toString())+retString54(matTempos.get("Time_Delete_Atom_Thread_Postgres").toString())+"          |          |          |");
+        System.out.println("Firebird        |"+ retString54(matTempos.get("Time_Insert_Atom_Serial_Firebird").toString())+retString54(matTempos.get("Time_Edit_Atom_Serial_Firebird").toString())+retString54(matTempos.get("Time_Delete_Atom_Serial_Firebird").toString())+retString54(matTempos.get("Time_Insert_Manual_Firebird").toString())+retString54(matTempos.get("Time_Edit_Manual_Firebird").toString())+retString54(matTempos.get("Time_Delete_Manual_Firebird").toString())+retString54(matTempos.get("Time_Insert_Atom_Thread_Firebird").toString())+retString54(matTempos.get("Time_Edit_Atom_Thread_Firebird").toString())+retString54(matTempos.get("Time_Delete_Atom_Thread_Firebird").toString())+"          |          |          |");
+        System.out.println("MySql           |"+ retString54(matTempos.get("Time_Insert_Atom_Serial_MySql").toString())+retString54(matTempos.get("Time_Edit_Atom_Serial_MySql").toString())+retString54(matTempos.get("Time_Delete_Atom_Serial_MySql").toString())+retString54(matTempos.get("Time_Insert_Manual_MySql").toString())+retString54(matTempos.get("Time_Edit_Manual_MySql").toString())+retString54(matTempos.get("Time_Delete_Manual_MySql").toString())+retString54(matTempos.get("Time_Insert_Atom_Thread_MySql").toString())+retString54(matTempos.get("Time_Edit_Atom_Thread_MySql").toString())+retString54(matTempos.get("Time_Delete_Atom_Thread_MySql").toString())+"          |          |          |");
+        System.out.println("Sqlite          |"+ retString54(matTempos.get("Time_Insert_Atom_Serial_Sqlite").toString())+retString54(matTempos.get("Time_Edit_Atom_Serial_Sqlite").toString())+retString54(matTempos.get("Time_Delete_Atom_Serial_Sqlite").toString())+retString54(matTempos.get("Time_Insert_Manual_Sqlite").toString())+retString54(matTempos.get("Time_Edit_Manual_Sqlite").toString())+retString54(matTempos.get("Time_Delete_Manual_Sqlite").toString())+retString54(matTempos.get("Time_Insert_Atom_Thread_Sqlite").toString())+retString54(matTempos.get("Time_Edit_Atom_Thread_Sqlite").toString())+retString54(matTempos.get("Time_Delete_Atom_Thread_Sqlite").toString())+"          |          |          |");
+    }
+
+    public static String retString54(String replacement){
+
+        String ret = "";
+        int tamanho = replacement.length();
+        String tab = "";
+        if(tamanho < 10){
+            for (int i = 0;i < (10 - replacement.length());i++){
+                tab += " ";
+            }
+            tab +="|";
+            ret = replacement + tab;
+            return ret;
+        } else{
+            return replacement;
         }
+
     }
 }

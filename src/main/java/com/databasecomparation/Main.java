@@ -24,7 +24,7 @@ public class Main {
         List<Empresas> mysql = Comparations.readArchive();
         List<Empresas> sqlite = Comparations.readArchive();
         List<Empresas> firebird = Comparations.readArchive();
-
+        povoahashTable();
 
         //Insert usando Atom sem thread
         System.out.println("Utilizando Atom");
@@ -32,21 +32,21 @@ public class Main {
         coPostgres.insertAtom(postgres,"Serial");
         comparationsMysql.insertAtom(mysql,"Serial");
         coSqlite.insertAtom(sqlite,"Serial");
-        Comparations.map();
+        //Comparations.map();
 
         //Update usando Atom sem thread
         coFirebird.editingAtom(firebird,"Serial");
         coPostgres.editingAtom(postgres,"Serial");
         comparationsMysql.editingAtom(mysql,"Serial");
         coSqlite.editingAtom(sqlite,"Serial");
-        Comparations.map();
+        //Comparations.map();
 
         //Delete usando Atom sem thread
         coFirebird.deletAtom(firebird,"Serial");
         coPostgres.deletAtom(postgres,"Serial");
         comparationsMysql.deletAtom(mysql,"Serial");
         coSqlite.deletAtom(sqlite,"Serial");
-        Comparations.map();
+        //Comparations.map();
 
         //***************************************Modo Manual*********************************
         System.out.println("Modo Manual");
@@ -67,7 +67,7 @@ public class Main {
         coPostgres.deletManual(postgres);
         comparationsMysql.deletManual(mysql);
         coSqlite.deletManual(sqlite);
-        Comparations.map();
+        //Comparations.map();
 
 
         //***************************************Usando Threads*********************************
@@ -76,6 +76,48 @@ public class Main {
         coSqlite.executParallel(sqlite);
         comparationsMysql.executParallel(mysql);
         coPostgres.executParallel(postgres);
-        Comparations.map();
+        //Comparations.map();
+    }
+
+    public static void povoahashTable(){
+        Comparations.matTempos.put("Time_Insert_Atom_Serial_Postgres","");
+        Comparations.matTempos.put("Time_Edit_Atom_Serial_Postgres","");
+        Comparations.matTempos.put("Time_Delete_Atom_Serial_Postgres","");
+        Comparations.matTempos.put("Time_Insert_Manual_Postgres","");
+        Comparations.matTempos.put("Time_Edit_Manual_Postgres","");
+        Comparations.matTempos.put("Time_Delete_Manual_Postgres","");
+        Comparations.matTempos.put("Time_Insert_Atom_Thread_Postgres","");
+        Comparations.matTempos.put("Time_Edit_Atom_Thread_Postgres","");
+        Comparations.matTempos.put("Time_Delete_Atom_Thread_Postgres","");
+
+        Comparations.matTempos.put("Time_Insert_Atom_Serial_Firebird","");
+        Comparations.matTempos.put("Time_Edit_Atom_Serial_Firebird","");
+        Comparations.matTempos.put("Time_Delete_Atom_Serial_Firebird","");
+        Comparations.matTempos.put("Time_Insert_Manual_Firebird","");
+        Comparations.matTempos.put("Time_Edit_Manual_Firebird","");
+        Comparations.matTempos.put("Time_Delete_Manual_Firebird","");
+        Comparations.matTempos.put("Time_Insert_Atom_Thread_Firebird","");
+        Comparations.matTempos.put("Time_Edit_Atom_Thread_Firebird","");
+        Comparations.matTempos.put("Time_Delete_Atom_Thread_Firebird","");
+
+        Comparations.matTempos.put("Time_Insert_Atom_Serial_MySql","");
+        Comparations.matTempos.put("Time_Edit_Atom_Serial_MySql","");
+        Comparations.matTempos.put("Time_Delete_Atom_Serial_MySql","");
+        Comparations.matTempos.put("Time_Insert_Manual_MySql","");
+        Comparations.matTempos.put("Time_Edit_Manual_MySql","");
+        Comparations.matTempos.put("Time_Delete_Manual_MySql","");
+        Comparations.matTempos.put("Time_Insert_Atom_Thread_MySql","");
+        Comparations.matTempos.put("Time_Edit_Atom_Thread_MySql","");
+        Comparations.matTempos.put("Time_Delete_Atom_Thread_MySql","");
+
+        Comparations.matTempos.put("Time_Insert_Atom_Serial_Sqlite","");
+        Comparations.matTempos.put("Time_Edit_Atom_Serial_Sqlite","");
+        Comparations.matTempos.put("Time_Delete_Atom_Serial_Sqlite","");
+        Comparations.matTempos.put("Time_Insert_Manual_Sqlite","");
+        Comparations.matTempos.put("Time_Edit_Manual_Sqlite","");
+        Comparations.matTempos.put("Time_Delete_Manual_Sqlite","");
+        Comparations.matTempos.put("Time_Insert_Atom_Thread_Sqlite","");
+        Comparations.matTempos.put("Time_Edit_Atom_Thread_Sqlite","");
+        Comparations.matTempos.put("Time_Delete_Atom_Thread_Sqlite","");
     }
 }
