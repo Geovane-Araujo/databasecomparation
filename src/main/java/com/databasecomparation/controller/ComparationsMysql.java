@@ -23,10 +23,10 @@ public  class ComparationsMysql implements Runnable{
             try{
                 int scalar = at.insertedOne(empresa,Empresas.class,conMysql);
                 empresa.setId(scalar);
-                System.out.println("Inserindo no Myqsl ");
+                //System.out.println("Inserindo no Myqsl ");
             }
             catch (SQLException | IllegalAccessException ex){
-                System.out.println(ex.getMessage());
+                //System.out.println(ex.getMessage());
             }
             emp.set(i,empresa);
             i++;
@@ -44,10 +44,10 @@ public  class ComparationsMysql implements Runnable{
         for (Empresas empresa: emp) {
             try{
                 at.editingOne(empresa,Empresas.class,conMysql,empresa.getId());
-                System.out.println("Editando no MySql");
+                //System.out.println("Editando no MySql");
             }
             catch (SQLException | IllegalAccessException ex){
-                System.out.println();
+               // System.out.println();
             }
         }
 
@@ -63,10 +63,10 @@ public  class ComparationsMysql implements Runnable{
         for (Empresas empresa: emp) {
             try{
                 at.deleted(conMysql,empresa.getId(),"empresas");
-                System.out.println("Excluido no MySql ");
+                //System.out.println("Excluido no MySql ");
             }
             catch (SQLException ex){
-                System.out.println();
+                //System.out.println();
             }
         }
 

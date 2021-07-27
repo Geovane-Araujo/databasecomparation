@@ -61,7 +61,7 @@ public abstract class Comparations{
             BufferedReader br = new BufferedReader(new FileReader(file));
             String linha = "";
             int i = 0;
-            while((linha = br.readLine()) != null && i <= 10){
+            while((linha = br.readLine()) != null && i <= 1000){
 
                 String[] splitempresa = linha.split("\";");
 

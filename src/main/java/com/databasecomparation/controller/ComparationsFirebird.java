@@ -35,10 +35,10 @@ public class ComparationsFirebird implements Runnable{
             try{
                 int scalar = at.insertedOne(empresa,Empresas.class,conFirebird);
                 empresa.setId(scalar);
-                System.out.println("Inserindo no Firebird" );
+                //System.out.println("Inserindo no Firebird" );
             }
             catch (SQLException | IllegalAccessException ex){
-                System.out.println(ex.getMessage());
+               // System.out.println(ex.getMessage());
             }
             emp.set(i,empresa);
             i++;
@@ -56,10 +56,10 @@ public class ComparationsFirebird implements Runnable{
         for (Empresas empresa: emp) {
             try{
                 at.editingOne(empresa,Empresas.class,conFirebird,empresa.getId());
-                System.out.println("Editando no Firebird");
+                //System.out.println("Editando no Firebird");
             }
             catch (SQLException | IllegalAccessException ex){
-                System.out.println();
+                //System.out.println();
             }
         }
 
@@ -75,7 +75,7 @@ public class ComparationsFirebird implements Runnable{
         for (Empresas empresa: emp) {
             try{
                 at.deleted(conFirebird,empresa.getId(),"empresas");
-                System.out.println("Excluido no Firebird ");
+                //System.out.println("Excluido no Firebird ");
             }
             catch (SQLException ex){
                 System.out.println();

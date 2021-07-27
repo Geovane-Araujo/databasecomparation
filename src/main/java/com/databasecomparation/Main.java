@@ -27,7 +27,7 @@ public class Main {
         povoahashTable();
 
         //Insert usando Atom sem thread
-        System.out.println("Utilizando Atom");
+        //System.out.println("Utilizando Atom");
         coFirebird.insertAtom(firebird,"Serial");
         coPostgres.insertAtom(postgres,"Serial");
         comparationsMysql.insertAtom(mysql,"Serial");
@@ -67,16 +67,16 @@ public class Main {
         coPostgres.deletManual(postgres);
         comparationsMysql.deletManual(mysql);
         coSqlite.deletManual(sqlite);
-        //Comparations.map();
+        Comparations.map();
 
 
-        //***************************************Usando Threads*********************************
-        //Usando Threads
-        coFirebird.executParallel(firebird);
-        coSqlite.executParallel(sqlite);
-        comparationsMysql.executParallel(mysql);
-        coPostgres.executParallel(postgres);
-        //Comparations.map();
+//        //***************************************Usando Threads*********************************
+//        //Usando Threads
+//        coFirebird.executParallel(firebird);
+//        coSqlite.executParallel(sqlite);
+//        comparationsMysql.executParallel(mysql);
+//        coPostgres.executParallel(postgres);
+//        //Comparations.map();
     }
 
     public static void povoahashTable(){

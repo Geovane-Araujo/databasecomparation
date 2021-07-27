@@ -26,10 +26,10 @@ public class ComparationsSqlite implements Runnable{
             try{
                 int scalar = at.insertedOne(empresa,Empresas.class,conSqlite);
                 empresa.setId(scalar);
-                System.out.println("Inserindo no Sqlite");
+                //System.out.println("Inserindo no Sqlite");
             }
             catch (SQLException | IllegalAccessException ex){
-                System.out.println(ex.getMessage());
+                //System.out.println(ex.getMessage());
             }
             emp.set(i,empresa);
             i++;
@@ -48,10 +48,10 @@ public class ComparationsSqlite implements Runnable{
         for (Empresas empresa: emp) {
             try{
                 at.editingOne(empresa,Empresas.class,conSqlite,empresa.getId());
-                System.out.println("Editando no Sqlite");
+                //System.out.println("Editando no Sqlite");
             }
             catch (SQLException | IllegalAccessException ex){
-                System.out.println();
+                //System.out.println();
             }
         }
 
@@ -67,10 +67,10 @@ public class ComparationsSqlite implements Runnable{
         for (Empresas empresa: emp) {
             try{
                 at.deleted(conSqlite,empresa.getId(),"empresas");
-                System.out.println("Excluido no Sqlite" );
+               // System.out.println("Excluido no Sqlite" );
             }
             catch (SQLException ex){
-                System.out.println();
+                //System.out.println();
             }
         }
 
